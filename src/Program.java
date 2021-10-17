@@ -12,11 +12,20 @@ public class Program {
         testAddArray(singleArray, 500_000);
         testAddArray(vectorArray, 500_000);
         testAddArray(factorArray, 500_000);
-        testAddArray(matrixArray, 500_000);
+//        testAddArray(matrixArray, 500_000);
         testRemoveArray(singleArray, 500_000);
         testRemoveArray(vectorArray, 500_000);
         testRemoveArray(factorArray, 500_000);
 //        testRemoveArray(matrixArray, 100_000);
+
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<Integer>();
+        priorityQueue.enqueue(100, 1);
+        priorityQueue.enqueue(10, 2);
+        priorityQueue.enqueue(1000, 100);
+
+        System.out.println(priorityQueue.dequeue()); // 100
+        System.out.println(priorityQueue.dequeue()); // 1
+        System.out.println(priorityQueue.dequeue()); // 2
     }
 
     private static void testAddArray(IArray data, int total) {
@@ -25,7 +34,6 @@ public class Program {
         for (int j = 0; j < total; j ++)
             data.add(j, 0);
 
-        System.out.println(data.size());
         System.out.println(data + " testAddArray: " +
                 (System.currentTimeMillis() - start));
     }
@@ -38,6 +46,5 @@ public class Program {
 
         System.out.println(data + " testRemoveArray: " +
                 (System.currentTimeMillis() - start));
-        System.out.println(data.size());
     }
 }
